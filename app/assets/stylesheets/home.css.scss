@@ -71,7 +71,12 @@ a {
 			    color: #aaa;
 			    padding-left: 10px;
 			    font-size: 12px;
+			    
         }
+        & > li.rebounds {
+				  float: left;
+				  padding-left: 0;
+			  }
 			}
 		}
 		.shot-800 {
