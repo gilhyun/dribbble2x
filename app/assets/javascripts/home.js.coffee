@@ -47,6 +47,6 @@ load_shot = (category, page) ->
         
   $.jribbble.getShotsByList category, callback,
     page: page
-    per_page: 15
+    per_page: 12
   
   page_state++
