@@ -1,14 +1,15 @@
 jQuery ->
-  $('.body').append('<div class="list-title"></div>')
-  $('.body').append('<div class="shot-list"></div>')
-  
-  $.ajax(
-    url: "http://api.dribbble.com/shots/popular"
-    dataType: 'jsonp'
-    cache: true
-  ).done (data) ->
+  console.log "On"
+  load_shot('popular','1')
+  $(window).scroll ->
+    load_shot('popular', page_state)  if $(window).scrollTop() is $(document).height() - $(window).height()
+
+page_state = 1;
+
+load_shot = (category, page) ->    
+  callback = (listDetails) ->
     html = ""
-    $.each data.shots, (i, shot) ->
+    $.each listDetails.shots, (i, shot) ->
       html += "<li>"
       html += "  <div class='user'>"
       html += "    <a href='" + shot.player.url + "'>"
@@ -29,8 +30,18 @@ jQuery ->
       html += "    </ul>"
       html += "  </div>"
       html += "</li>"
-
-    $(".list-title").html "<h2>Popular</h2>"
-    $(".shot-list").html html
     
-    console.log data
+    $(".shot-list").append html
+    $(".pagecounter").html(page).stop().show();
+    $(".pagecounter").html(page).stop().show().animate
+      opacity: 1
+    , 200, ->
+      $(".pagecounter").animate
+        opacity: 0
+      , 800, ->
+
+  $.jribbble.getShotsByList category, callback,
+    page: page
+    per_page: 15
+  
+  page_state++
