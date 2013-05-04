@@ -2,6 +2,8 @@ html,body {
 	height: 100%;
 	font-family: $helvetica;
 	background-color: #333;
+	padding: 0;
+	margin: 0;
 }
 img {
 	vertical-align: top;
@@ -9,17 +11,34 @@ img {
 ul,ol,li,p {
 	padding: 0;
 	margin: 0;
+	list-style: none;
 }
 a {
 	text-decoration: none;
+	color: #ea4c89;
+}
+.topbar {
+	background-color: #222;
+	padding: 10px 0;
+	box-shadow: 0px 1px 0px rgba(255,255,255,0.07);
+	h1 {
+		width: 960px;
+	  margin: 0 auto;
+		padding: 0;
+	  font-size: 14px;
+	  color: #ea4c89;
+	}
+}
+.body {
+	min-height: 900px;
 }
 .list-title {
   width: 960px;
+  min-height: 50px;
 	margin: 0 auto;
 	color: #fff;
 	border-bottom: 1px solid #222;
 	box-shadow: 0px 1px 0px rgba(255,255,255,0.07);
-	text-indent: 20px;
 }
 .shot-list {
 	width: 990px;
@@ -27,7 +46,6 @@ a {
 	padding-top: 30px;
 	& > li {
 		color: #fff;
-		list-style: none;
 		overflow: hidden;
 		height: 100%;
 		padding-bottom: 70px;
@@ -86,4 +104,13 @@ a {
 			width: 430px;
 		}
 	}
+}
+.footer {
+	width: 960px;
+	margin: 0 auto;
+	color: #ccc;
+	box-shadow: 0px -1px 0px rgba(0,0,0,0.7);
+	border-top: 1px solid rgba(255,255,255,0.07);
+	padding: 20px 0;
+	font-size: 11px;
 }

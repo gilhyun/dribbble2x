@@ -1,0 +1,22 @@
+!!!
+%html(class="#{controller_name} #{action_name}")
+  %head
+    %title Dribbble2x
+    = stylesheet_link_tag "application", :media => "all"
+    = csrf_meta_tags
+    = javascript_include_tag "application"
+    /[if lt IE 9]
+      %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    
+  %body(class="#{controller_name} #{action_name}")
+    .topbar
+      %h1 Dribbble2x
+    .body
+      = yield
+    .footer
+      %ul
+        %li
+          %a{:href => "http://dribbble.com/api"} Dribbble API
+        %li
+          Powered by 
+          %a{:href => "http://g-g-g-g-b-b.com"} Gil Hyun

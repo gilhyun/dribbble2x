@@ -1,9 +1,9 @@
 jQuery ->
-  $('body').prepend('<div class="shot-list"></div>')
-  $('body').prepend('<div class="list-title"></div>')
+  $('.body').append('<div class="list-title"></div>')
+  $('.body').append('<div class="shot-list"></div>')
   
   $.ajax(
-    url: "http://api.dribbble.com/shots/popular?per_page=30"
+    url: "http://api.dribbble.com/shots/popular"
     dataType: 'jsonp'
     cache: true
   ).done (data) ->
