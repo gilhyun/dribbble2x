@@ -2,11 +2,13 @@ jQuery ->
   console.log "On"
   load_shot('popular','1')
   $(window).scroll ->
-    load_shot('popular', page_state)  if $(window).scrollTop() is $(document).height() - $(window).height()
+    load_shot('popular', page_state)  if $(window).scrollTop() is $(document).height() - $(window).height() && load_state
 
 page_state = 1;
+load_state = true;
 
 load_shot = (category, page) ->    
+  load_state = false
   callback = (listDetails) ->
     html = ""
     $.each listDetails.shots, (i, shot) ->
@@ -32,14 +34,17 @@ load_shot = (category, page) ->
       html += "</li>"
     
     $(".shot-list").append html
-    $(".pagecounter").html(page).stop().show();
-    $(".pagecounter").html(page).stop().show().animate
+    
+    pagecounter = $(".pagecounter");
+    pagecounter.html(page).stop().show().animate
       opacity: 1
     , 200, ->
-      $(".pagecounter").animate
+      pagecounter.animate
         opacity: 0
       , 800, ->
-
+        pagecounter.hide()
+        load_state = true
+        
   $.jribbble.getShotsByList category, callback,
     page: page
     per_page: 15
