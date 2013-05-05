@@ -1,5 +1,4 @@
 jQuery ->
-  console.log "On"
   load_shot('popular','1')
   $(window).scroll ->
     load_shot('popular', page_state)  if $(window).scrollTop() is $(document).height() - $(window).height() && load_state

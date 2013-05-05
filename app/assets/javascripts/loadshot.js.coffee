@@ -34,7 +34,7 @@
     preloader = $(".preloader")
     preloader.show().animate 
       opacity: 1
-    , 100
+    , 200
     $.ajax
       type: "GET"
       url: "http://api.dribbble.com" + path
@@ -45,10 +45,11 @@
           args[0] error: true
         else
           args[0] data
-          preloader.animate 
-            opacity: 0
-          , 800, ->
-            preloader.hide()
+          
+        preloader.animate 
+          opacity: 0
+        , 400, ->
+          preloader.hide()
             
 
 
