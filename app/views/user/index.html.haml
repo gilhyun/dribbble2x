@@ -1,5 +1,5 @@
 %h2.list-title
-  Popular
+  #{@name}
 .shot-list
 .pagecounter
 .preloader
@@ -9,10 +9,10 @@
   var load_shot, load_state, page_state;
 
   jQuery(function() {
-    load_shot('popular', '1');
+    load_shot('#{@name}', '1');
     return $(window).scroll(function() {
       if ($(window).scrollTop() === $(document).height() - $(window).height() && load_state) {
-        return load_shot('popular', page_state);
+        return load_shot('#{@name}', page_state);
       }
     });
   });
@@ -62,7 +62,7 @@
         });
       });
     };
-    $.jribbble.getShotsByList(category, callback, {
+    $.jribbble.getShotsByPlayerId(category, callback, {
       page: page,
       per_page: 12
     });
