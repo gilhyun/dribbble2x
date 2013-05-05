@@ -31,6 +31,10 @@
   "use strict"
   $.jribbble = {}
   jsonpGET = (path, args) ->
+    preloader = $(".preloader")
+    preloader.show().animate 
+      opacity: 1
+    , 100
     $.ajax
       type: "GET"
       url: "http://api.dribbble.com" + path
@@ -41,6 +45,11 @@
           args[0] error: true
         else
           args[0] data
+          preloader.animate 
+            opacity: 0
+          , 800, ->
+            preloader.hide()
+            
 
 
   methods =

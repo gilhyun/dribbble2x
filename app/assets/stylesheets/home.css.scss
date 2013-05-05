@@ -124,6 +124,17 @@ a {
 	margin: -100px 0 0 -100px;
 	text-indent: -5px;
 }
+.preloader {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 20px;
+	background-color: #222;
+	color: #777;
+	font-size: 11px;
+	font-weight: bold;
+	border-radius: 4px;
+}
 .footer {
 	width: 960px;
 	margin: 0 auto;
