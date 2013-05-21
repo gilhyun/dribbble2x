@@ -10,7 +10,9 @@
     
   %body(class="#{controller_name} #{action_name}")
     .topbar
-      %h1 Dribbble2x
+      %h1 
+        %a{:href => "/"}
+          Dribbble2x
     .body
       = yield
     .footer

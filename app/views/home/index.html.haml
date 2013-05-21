@@ -30,7 +30,7 @@
       $.each(listDetails.shots, function(i, shot) {
         html += "<li>";
         html += "  <div class='user'>";
-        html += "    <a href='" + shot.player.url + "'>";
+        html += "    <a href='/" + shot.player.username + "'>";
         html += "      <img src='" + shot.player.avatar_url + "' class='avatar' alt='" + shot.player.name + "'>";
         html += "      by " + shot.player.name;
         html += "    </a>";
